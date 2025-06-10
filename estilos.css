@@ -39,3 +39,28 @@ footer {
     padding: 1rem;
     margin-top: 2rem;
 }
+
+.galeria .imagenes {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.galeria .imagenes img {
+    width: 220px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.contacto, .redes {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.redes a {
+    margin: 0 0.5rem;
+    color: #7b1c2c;
+    text-decoration: none;
+    font-weight: bold;
+}
