@@ -1,156 +1,113 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bloque Ritmos de Sangre - Caporales Huáscar Perú</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      background-color: #f4f4f4;
-    }
-    header {
-      background-color: #7b1c2c;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-    }
-    .sidebar {
-      width: 220px;
-      background-color: #333;
-      color: white;
-      padding-top: 80px;
-      position: fixed;
-      height: 100%;
-      overflow-y: auto;
-    }
-    .sidebar ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    .sidebar li {
-      padding: 10px;
-      cursor: pointer;
-    }
-    .sidebar li:hover, .sidebar li.active {
-      background-color: #555;
-    }
-    .submenu {
-      display: none;
-      background-color: #444;
-    }
-    .submenu li {
-      padding-left: 20px;
-    }
-    main {
-      margin-left: 220px;
-      padding: 100px 20px 20px;
-      flex: 1;
-    }
-    section {
-      display: none;
-    }
-    section.active {
-      display: block;
-    }
-    .galeria img {
-      width: 180px;
-      margin: 10px;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-    .galeria img:hover {
-      transform: scale(1.05);
-    }
-    .expanded-img {
-      display: block;
-      margin: 20px auto;
-      max-width: 90%;
-    }
-    footer {
-      background-color: #555;
-      color: white;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloque Ritmos de Sangre - Caporales Huáscar Perú</title>
+    <link rel="stylesheet" href="estilos.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #7b1c2c;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .logo {
+            max-width: 180px;
+        }
+        nav {
+            background-color: #555;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav select {
+            margin: 1rem;
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+        section {
+            padding: 2rem;
+        }
+        .galeria img {
+            width: 220px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+        .redes a {
+            margin: 0 0.5rem;
+            color: #7b1c2c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #555;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="Logo Ritmos de Sangre" style="max-height: 100px;">
-    <h1>Bloque Ritmos de Sangre - Caporales Huáscar Perú</h1>
-    <p>Con Cariño Ritmos Ritmos RITMOS DE SANGRE - HUASCÁR PERÚ</p>
-  </header>
-  <div class="sidebar">
-    <ul>
-      <li onclick="mostrar('inicio')">Inicio</li>
-      <li onclick="mostrar('nosotros')">Nosotros</li>
-      <li onclick="mostrar('historia')">Historia</li>
-      <li onclick="mostrar('juntas')">Juntas Directivas</li>
-      <li onclick="toggleSubmenu('sedes')">Sedes</li>
-        <ul id="submenu-sedes" class="submenu">
-          <li onclick="mostrar('sede-puno')">Puno</li>
-          <li onclick="mostrar('sede-lima')">Lima</li>
-          <li onclick="mostrar('sede-arequipa')">Arequipa</li>
-          <li onclick="mostrar('sede-cusco')">Cusco</li>
-        </ul>
-      <li onclick="mostrar('galeria')">Galería de Fotos</li>
-      <li onclick="mostrar('contacto')">Contactos</li>
-      <li onclick="mostrar('redes')">Redes Sociales</li>
-    </ul>
-  </div>
-  <main>
-    <section id="inicio" class="active">Bienvenidos a nuestra agrupación de danza Caporales.</section>
-    <section id="nosotros">Somos jóvenes apasionados por la cultura y el folclore boliviano.</section>
-    <section id="historia">Nuestra historia comienza en Lima con el deseo de difundir el caporal con amor.</section>
-    <section id="juntas">Directivas organizadas desde el año 2020 hasta la actualidad.</section>
-    <section id="sede-puno">Nuestra sede en Puno está enfocada en la tradición y fe.</section>
-    <section id="sede-lima">Nuestra sede en Lima reúne jóvenes de diferentes distritos.</section>
-    <section id="sede-arequipa">En Arequipa promovemos la danza a través de talleres y ensayos.</section>
-    <section id="sede-cusco">Cusco vive el caporal con energía y pasión cultural.</section>
-    <section id="galeria" class="galeria">
-      <img src="foto1.jpg" alt="Foto 1" onclick="expandir(this.src)">
-      <img src="foto2.jpg" alt="Foto 2" onclick="expandir(this.src)">
-      <img src="foto3.jpg" alt="Foto 3" onclick="expandir(this.src)">
-      <img id="expandida" class="expanded-img" style="display:none" />
-    </section>
-    <section id="contacto">
-      Escríbenos a: <strong>ritmosdesangre@gmail.com</strong><br>
-      WhatsApp: <strong>+51 987 654 321</strong>
-    </section>
-    <section id="redes">
-      <a href="https://facebook.com">Facebook</a><br>
-      <a href="https://instagram.com">Instagram</a><br>
-      <a href="https://tiktok.com">TikTok</a>
-    </section>
-  </main>
-  <footer>
-    &copy; 2025 Bloque Ritmos de Sangre - Todos los derechos reservados
-  </footer>
-  <script>
-    function mostrar(id) {
-      document.querySelectorAll('main section').forEach(sec => sec.classList.remove('active'));
-      document.getElementById('expandida').style.display = 'none';
-      document.getElementById(id).classList.add('active');
-    }
-    function toggleSubmenu(id) {
-      const submenu = document.getElementById(`submenu-${id}`);
-      submenu.style.display = submenu.style.display === 'block' ? 'none' : 'block';
-    }
-    function expandir(src) {
-      const expanded = document.getElementById('expandida');
-      expanded.src = src;
-      expanded.style.display = 'block';
-    }
-  </script>
+    <header>
+        <img src="logo.png" alt="Logo Ritmos de Sangre" class="logo">
+        <h1>Bloque Ritmos de Sangre - Caporales Huáscar Perú</h1>
+        <p class="lema">Con Cariño Ritmos Ritmos RITMOS DE SANGRE - HUASCÁR PERÚ</p>
+    </header>
+
+    <nav>
+        <select onchange="mostrarSeccion(this.value)">
+            <option value="inicio">Inicio</option>
+            <option value="nosotros">Nosotros</option>
+            <option value="historia">Historia</option>
+            <option value="juntas">Juntas Directivas</option>
+            <option value="sedes">Sedes</option>
+            <option value="galeria">Galería de Fotos</option>
+            <option value="contacto">Contactos</option>
+            <option value="redes">Redes Sociales</option>
+        </select>
+    </nav>
+
+    <main>
+        <section id="inicio">Bienvenidos a nuestra agrupación de danza Caporales.</section>
+        <section id="nosotros" style="display:none">Somos jóvenes apasionados por la cultura y el folclore boliviano.</section>
+        <section id="historia" style="display:none">Nuestra historia comienza en Lima con el deseo de difundir el caporal con amor.</section>
+        <section id="juntas" style="display:none">Directivas organizadas desde el año 2020 hasta la actualidad.</section>
+        <section id="sedes" style="display:none">Contamos con sedes en Lima Norte, Lima Centro y Lima Sur.</section>
+        <section id="galeria" style="display:none" class="galeria">
+            <img src="foto1.jpg" alt="Foto 1">
+            <img src="foto2.jpg" alt="Foto 2">
+            <img src="foto3.jpg" alt="Foto 3">
+        </section>
+        <section id="contacto" style="display:none">
+            Escríbenos a: <strong>ritmosdesangre@gmail.com</strong><br>
+            WhatsApp: <strong>+51 987 654 321</strong>
+        </section>
+        <section id="redes" style="display:none" class="redes">
+            <a href="https://facebook.com">Facebook</a>
+            <a href="https://instagram.com">Instagram</a>
+            <a href="https://tiktok.com">TikTok</a>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Bloque Ritmos de Sangre - Todos los derechos reservados
+    </footer>
+
+    <script>
+        function mostrarSeccion(id) {
+            const secciones = document.querySelectorAll('main > section');
+            secciones.forEach(sec => sec.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
 </body>
 </html>
