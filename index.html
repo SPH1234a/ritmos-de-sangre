@@ -1,10 +1,60 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bloque Ritmos de Sangre - Caporales Huáscar Perú</title>
     <link rel="stylesheet" href="estilos.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #7b1c2c;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        .logo {
+            max-width: 180px;
+        }
+        nav {
+            background-color: #555;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav select {
+            margin: 1rem;
+            padding: 0.5rem;
+            font-size: 1rem;
+        }
+        section {
+            padding: 2rem;
+        }
+        .galeria img {
+            width: 220px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+        .redes a {
+            margin: 0 0.5rem;
+            color: #7b1c2c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #555;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -13,38 +63,51 @@
         <p class="lema">Con Cariño Ritmos Ritmos RITMOS DE SANGRE - HUASCÁR PERÚ</p>
     </header>
 
+    <nav>
+        <select onchange="mostrarSeccion(this.value)">
+            <option value="inicio">Inicio</option>
+            <option value="nosotros">Nosotros</option>
+            <option value="historia">Historia</option>
+            <option value="juntas">Juntas Directivas</option>
+            <option value="sedes">Sedes</option>
+            <option value="galeria">Galería de Fotos</option>
+            <option value="contacto">Contactos</option>
+            <option value="redes">Redes Sociales</option>
+        </select>
+    </nav>
+
     <main>
-        <section>
-            <h2>Bienvenidos</h2>
-            <p>Somos una agrupación de danza juvenil comprometida con el arte y la cultura caporal. ¡Gracias por visitarnos!</p>
+        <section id="inicio">Bienvenidos a nuestra agrupación de danza Caporales.</section>
+        <section id="nosotros" style="display:none">Somos jóvenes apasionados por la cultura y el folclore boliviano.</section>
+        <section id="historia" style="display:none">Nuestra historia comienza en Lima con el deseo de difundir el caporal con amor.</section>
+        <section id="juntas" style="display:none">Directivas organizadas desde el año 2020 hasta la actualidad.</section>
+        <section id="sedes" style="display:none">Contamos con sedes en Lima Norte, Lima Centro y Lima Sur.</section>
+        <section id="galeria" style="display:none" class="galeria">
+            <img src="foto1.jpg" alt="Foto 1">
+            <img src="foto2.jpg" alt="Foto 2">
+            <img src="foto3.jpg" alt="Foto 3">
         </section>
-
-        <section class="galeria">
-            <h2>Galería de Fotos</h2>
-            <div class="imagenes">
-                <img src="foto1.jpg" alt="Presentación 1">
-                <img src="foto2.jpg" alt="Presentación 2">
-                <img src="foto3.jpg" alt="Presentación 3">
-            </div>
+        <section id="contacto" style="display:none">
+            Escríbenos a: <strong>ritmosdesangre@gmail.com</strong><br>
+            WhatsApp: <strong>+51 987 654 321</strong>
         </section>
-
-        <section class="contacto">
-            <h2>Contacto</h2>
-            <p>¿Deseas invitarnos a un evento o unirte a la agrupación?</p>
-            <p>📧 ritmosdesangre@gmail.com</p>
-            <p>📱 +51 913 478 401</p>
-        </section>
-
-        <section class="redes">
-            <h2>Síguenos</h2>
-            <a href="https://www.facebook.com" target="_blank">Facebook</a> |
-            <a href="https://www.instagram.com" target="_blank">Instagram</a> |
-            <a href="https://www.tiktok.com" target="_blank">TikTok</a>
+        <section id="redes" style="display:none" class="redes">
+            <a href="https://facebook.com">Facebook</a>
+            <a href="https://instagram.com">Instagram</a>
+            <a href="https://tiktok.com">TikTok</a>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Bloque Ritmos de Sangre - Todos los derechos reservados</p>
+        &copy; 2025 Bloque Ritmos de Sangre - Todos los derechos reservados
     </footer>
+
+    <script>
+        function mostrarSeccion(id) {
+            const secciones = document.querySelectorAll('main > section');
+            secciones.forEach(sec => sec.style.display = 'none');
+            document.getElementById(id).style.display = 'block';
+        }
+    </script>
 </body>
 </html>
