@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -9,34 +10,25 @@
   </head>
   <body>
     <div class="container">
-      <aside class="sidebar">
-        <div class="logo">
-          <img src="logo.png" alt="Logo Ritmos de Sangre Lima" />
-          <h1>Bloque Ritmos de Sangre Lima</h1>
-          <p class="lema"><em>Con Cariño Ritmos Ritmos RITMOS DE SANGRE - HUASCÁR PERÚ</em></p>
-        </div>
-        <nav class="menu">
-          <ul>
-            <li onclick="mostrarSeccion('inicio')">Inicio</li>
-            <li onclick="mostrarSeccion('nosotros')">Nosotros</li>
-            <li onclick="mostrarSeccion('historia')">Historia</li>
-            <li onclick="mostrarSeccion('juntas')">Juntas Directivas</li>
-            <li class="has-submenu">
-              <span onclick="toggleSubmenu()">Sedes ▾</span>
-              <ul class="submenu">
-                <li onclick="mostrarSeccion('puno')">Puno</li>
-                <li onclick="mostrarSeccion('arequipa')">Arequipa</li>
-                <li onclick="mostrarSeccion('cusco')">Cusco</li>
-              </ul>
-            </li>
-            <li onclick="mostrarSeccion('galeria')">Galería de Fotos</li>
-            <li onclick="mostrarSeccion('contacto')">Contacto</li>
-            <li onclick="mostrarSeccion('redes')">Redes Sociales</li>
-          </ul>
-        </nav>
-      </aside>
-      <main class="contenido">
-        <section id="inicio"><h2>Inicio</h2><p>Bienvenidos a nuestra agrupación de danza Caporales Huáscar Perú.</p></section>
+      <header class="header">
+        <img src="logo.png" alt="Logo Ritmos de Sangre Lima" />
+        <h1>Bloque Ritmos de Sangre Lima</h1>
+        <p class="lema">Con Cariño Ritmos Ritmos RITMOS DE SANGRE - HUASCÁR PERÚ</p>
+      </header>
+      <nav class="navbar">
+        <button onclick="mostrarSeccion('inicio')">Inicio</button>
+        <button onclick="mostrarSeccion('nosotros')">Nosotros</button>
+        <button onclick="mostrarSeccion('historia')">Historia</button>
+        <button onclick="mostrarSeccion('juntas')">Juntas Directivas</button>
+        <button onclick="mostrarSeccion('puno')">Puno</button>
+        <button onclick="mostrarSeccion('arequipa')">Arequipa</button>
+        <button onclick="mostrarSeccion('cusco')">Cusco</button>
+        <button onclick="mostrarSeccion('galeria')">Galería de Fotos</button>
+        <button onclick="mostrarSeccion('contacto')">Contacto</button>
+        <button onclick="mostrarSeccion('redes')">Redes Sociales</button>
+      </nav>
+      <main>
+        <section id="inicio" class="active"><h2>Inicio</h2><p>Bienvenidos a nuestra agrupación de danza Caporales Huáscar Perú.</p></section>
         <section id="nosotros"><h2>Nosotros</h2><p>Somos una familia unida por la danza y el folclore.</p></section>
         <section id="historia"><h2>Historia</h2><p>Desde nuestros inicios hemos llevado alegría a cada escenario.</p></section>
         <section id="juntas"><h2>Juntas Directivas</h2><p>Directivas organizadas desde el año 2020.</p></section>
