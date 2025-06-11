@@ -1,9 +1,9 @@
 
-/* styles.css */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
@@ -14,32 +14,31 @@ body {
   width: 250px;
   background-color: #800020;
   color: white;
-  height: 100vh;
   padding: 20px;
-  position: fixed;
-  top: 0;
-  left: 0;
+  height: 100vh;
+  overflow-y: auto;
   transition: transform 0.3s ease-in-out;
-  z-index: 1000;
 }
 
 .sidebar.hidden {
-  transform: translateX(-100%);
+  transform: translateX(-260px);
+  position: absolute;
 }
 
 .logo img {
-  max-width: 100%;
-  height: auto;
+  width: 100%;
+  max-width: 180px;
+  margin-bottom: 10px;
 }
 
 .logo h1 {
-  font-size: 20px;
+  font-size: 18px;
   margin: 10px 0 5px;
 }
 
-.logo .lema {
-  font-size: 14px;
-  font-style: italic;
+.lema {
+  font-size: 12px;
+  color: #ddd;
 }
 
 .menu ul {
@@ -47,43 +46,41 @@ body {
   padding: 0;
 }
 
-.menu ul li {
-  padding: 10px;
+.menu li {
+  padding: 10px 0;
   cursor: pointer;
 }
 
-.menu ul li:hover,
-.menu ul li:focus {
+.menu li:hover {
   background-color: #a52a2a;
 }
 
-.has-submenu > .submenu {
+.submenu {
   display: none;
+  list-style: none;
   padding-left: 15px;
 }
 
-.has-submenu.open > .submenu {
+.has-submenu:hover .submenu {
   display: block;
 }
 
-main.contenido {
-  margin-left: 270px;
-  padding: 20px;
+.contenido {
   flex-grow: 1;
+  padding: 20px;
 }
 
 .galeria {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 10px;
 }
 
 .galeria img {
-  width: 150px;
-  height: 100px;
-  object-fit: cover;
+  width: 100%;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  border-radius: 8px;
+  transition: transform 0.2s;
 }
 
 .galeria img:hover {
@@ -93,19 +90,23 @@ main.contenido {
 .modal {
   display: none;
   position: fixed;
-  z-index: 10000;
+  z-index: 1000;
   left: 0;
   top: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
   justify-content: center;
   align-items: center;
 }
 
 .modal img {
   max-width: 90%;
-  max-height: 90%;
+  max-height: 80%;
+}
+
+.modal.show {
+  display: flex;
 }
 
 .hamburger {
@@ -120,19 +121,4 @@ main.contenido {
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    transform: translateX(-100%);
-  }
-
-  .sidebar.show {
-    transform: translateX(0);
-  }
-
-  main.contenido {
-    margin-left: 0;
-    padding-top: 60px;
-  }
 }
