@@ -1,8 +1,21 @@
 
+// app.js
 function mostrarSeccion(id) {
-  document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
+  const secciones = document.querySelectorAll("main section");
+  secciones.forEach((sec) => (sec.style.display = "none"));
+  document.getElementById(id).style.display = "block";
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  mostrarSeccion("inicio");
+
+  const hamburger = document.getElementById("hamburger");
+  const sidebar = document.querySelector(".sidebar");
+
+  hamburger.addEventListener("click", () => {
+    sidebar.classList.toggle("hidden");
+  });
+});
 
 function toggleSubmenu() {
   const submenu = document.querySelector(".has-submenu");
