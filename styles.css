@@ -169,12 +169,14 @@ section.active {
   opacity: 1;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE PARA CELULAR */
 @media (max-width: 768px) {
+  /* Reorganiza layout vertical */
   .container {
     flex-direction: column;
   }
 
+  /* Sidebar se comporta como cabecera */
   .sidebar {
     position: relative;
     width: 100%;
@@ -182,9 +184,9 @@ section.active {
     text-align: center;
   }
 
-  .contenido {
-    margin-left: 0;
-    padding: 15px;
+  .logo img {
+    max-width: 120px;
+    margin: 0 auto 10px auto;
   }
 
   .logo h1 {
@@ -195,6 +197,7 @@ section.active {
     font-size: 11px;
   }
 
+  /* Menú adaptado al centro */
   .menu ul {
     display: flex;
     flex-wrap: wrap;
@@ -210,6 +213,13 @@ section.active {
     border-radius: 6px;
   }
 
+  /* Contenido se adapta sin margen */
+  .contenido {
+    margin-left: 0;
+    padding: 15px;
+  }
+
+  /* Galería más compacta */
   .galeria {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
@@ -218,6 +228,7 @@ section.active {
     max-width: 100%;
   }
 
+  /* Footer adaptado */
   .footer {
     font-size: 0.8em;
     padding: 15px 5px;
