@@ -1,15 +1,7 @@
-/* RESET */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-/* ESTRUCTURA PRINCIPAL */
-html, body {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
 }
 
 body {
@@ -18,14 +10,11 @@ body {
   min-height: 100vh;
 }
 
-/* CONTENEDOR PRINCIPAL */
 .container {
   display: flex;
-  flex: 1;
   width: 100%;
 }
 
-/* SIDEBAR */
 .sidebar {
   width: 260px;
   background-color: #7b1c2c;
@@ -56,9 +45,9 @@ body {
   margin-bottom: 20px;
 }
 
-/* MENÚ */
 .menu ul {
   list-style-type: none;
+  padding-left: 0;
 }
 
 .menu li {
@@ -82,15 +71,13 @@ body {
   display: block;
 }
 
-/* CONTENIDO PRINCIPAL */
+/* Contenido principal con margen izquierdo para no quedar debajo del sidebar */
 .contenido {
   margin-left: 260px;
   padding: 20px;
   flex-grow: 1;
-  min-height: 100%;
+  min-height: 100vh;
   background-color: #fff;
-  display: flex;
-  flex-direction: column;
 }
 
 section {
@@ -101,7 +88,6 @@ section.active {
   display: block;
 }
 
-/* GALERÍA */
 .galeria {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
@@ -119,12 +105,13 @@ section.active {
   transform: scale(1.05);
 }
 
-/* MODAL */
+/* Modal para ampliar imágenes */
 .modal {
   display: none;
   position: fixed;
   z-index: 999;
-  left: 0; top: 0;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.8);
@@ -138,24 +125,20 @@ section.active {
   border-radius: 12px;
 }
 
-/* FOOTER */
+/* Pie de página */
 .footer {
   background-color: #e0e0e0;
   padding: 20px 10px;
   text-align: center;
+  margin-top: 40px;
   border-top: 2px solid #7b1c2c;
   width: 100%;
-  margin-top: auto;
 }
 
-.footer p {
+.footer-contenido p {
+  margin-bottom: 10px;
   color: #333;
   font-size: 0.9em;
-  margin-bottom: 10px;
-}
-
-.footer-logo {
-  margin-top: 10px;
 }
 
 .footer-logo img {
@@ -169,24 +152,23 @@ section.active {
   opacity: 1;
 }
 
-/* RESPONSIVE PARA CELULAR */
+/* RESPONSIVE - Estilos para pantallas menores a 768px */
 @media (max-width: 768px) {
-  /* Reorganiza layout vertical */
   .container {
     flex-direction: column;
   }
 
-  /* Sidebar se comporta como cabecera */
   .sidebar {
     position: relative;
     width: 100%;
     height: auto;
     text-align: center;
+    padding: 15px;
   }
 
-  .logo img {
-    max-width: 120px;
-    margin: 0 auto 10px auto;
+  .contenido {
+    margin-left: 0;
+    padding: 15px;
   }
 
   .logo h1 {
@@ -197,12 +179,12 @@ section.active {
     font-size: 11px;
   }
 
-  /* Menú adaptado al centro */
   .menu ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 0;
+    padding-left: 0;
+    gap: 10px;
   }
 
   .menu li {
@@ -213,22 +195,14 @@ section.active {
     border-radius: 6px;
   }
 
-  /* Contenido se adapta sin margen */
-  .contenido {
-    margin-left: 0;
-    padding: 15px;
+  .has-submenu .submenu {
+    padding-left: 0;
   }
 
-  /* Galería más compacta */
   .galeria {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 
-  .galeria img {
-    max-width: 100%;
-  }
-
-  /* Footer adaptado */
   .footer {
     font-size: 0.8em;
     padding: 15px 5px;
