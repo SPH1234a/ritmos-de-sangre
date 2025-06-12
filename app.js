@@ -1,23 +1,54 @@
-// Mostrar secciones
+// Mostrar la sección seleccionada
 function mostrarSeccion(id) {
-  document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
+  const secciones = document.querySelectorAll("main section");
+  secciones.forEach(sec => sec.classList.remove("active"));
+
+  const target = document.getElementById(id);
+  if (target) {
+    target.classList.add("active");
+    window.scrollTo({ top: 0, behavior: "smooth" }); // desplazamiento suave
+  }
 }
 
-// Submenú de sedes
+// Alternar visibilidad del submenú de sedes
 function toggleSubmenu() {
   const submenu = document.querySelector(".has-submenu");
   submenu.classList.toggle("open");
 }
 
-// Galería de fotos
+// Expandir imagen de la galería en modal
 function expandirImagen(img) {
   const modal = document.getElementById("modal");
   const imagenExpandida = document.getElementById("imagenExpandida");
-  imagenExpandida.src = img.src;
-  modal.style.display = "flex";
+
+  if (modal && imagenExpandida) {
+    imagenExpandida.src = img.src;
+    imagenExpandida.alt = img.alt;
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden"; // evita scroll de fondo
+  }
 }
 
+// Cerrar el modal de imagen
 function cerrarModal() {
-  document.getElementById("modal").style.display = "none";
+  const modal = document.getElementById("modal");
+  if (modal) {
+    modal.style.display = "none";
+    document.body.style.overflow = "auto";
+  }
 }
+
+// Cerrar el submenú si se hace clic fuera de él
+document.addEventListener("click", function (event) {
+  const submenu = document.querySelector(".has-submenu");
+  if (submenu && !submenu.contains(event.target)) {
+    submenu.classList.remove("open");
+  }
+});
+
+// Accesibilidad: cerrar modal con tecla ESC
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    cerrarModal();
+  }
+});
