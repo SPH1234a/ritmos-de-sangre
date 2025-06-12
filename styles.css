@@ -171,20 +171,38 @@ section.active {
   }
 }
 .footer {
-  background-color: #333;
-  color: #fff;
+  background-color: #e0e0e0; /* Gris claro */
+  padding: 20px 10px;
   text-align: center;
-  padding: 1em;
-  font-size: 0.9em;
-  width: 100%;
   margin-top: 40px;
-  border-top: 2px solid #7b1c2c; /* Línea superior vino */
+  border-top: 2px solid #7b1c2c;
+  width: 100%;
 }
 
-/* Responsive para móviles */
+.footer-contenido p {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 0.9em;
+}
+
+.footer-logo img {
+  width: 80px;
+  height: auto;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.footer-logo img:hover {
+  opacity: 1;
+}
+
 @media (max-width: 768px) {
   .footer {
     font-size: 0.8em;
-    padding: 0.8em;
+    padding: 15px 5px;
+  }
+
+  .footer-logo img {
+    width: 60px;
   }
 }
